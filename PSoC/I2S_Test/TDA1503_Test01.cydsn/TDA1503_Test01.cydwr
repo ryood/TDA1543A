@@ -252,6 +252,7 @@
   <Group key="DWRInstGuidMapping">
     <Group key="Pin">
       <Data key="5fd2c90a-3be3-4867-bbc5-98241ba7f1c3" value="Pin_Check_0" />
+      <Data key="8c39c0c5-728a-44aa-acee-cfa10f1fca3c" value="Pin_Check_1" />
       <Data key="0412e7a3-7bb2-4490-8a7d-0675b098c5ba" value="WS_1" />
       <Data key="c8e19693-67d9-4f29-a02f-cee5400c223a" value="SCK_1" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Pin_I2S_Clock" />
@@ -3345,6 +3346,11 @@
     <Group key="5fd2c90a-3be3-4867-bbc5-98241ba7f1c3">
       <Group key="0">
         <Data key="Port Format" value="2,6" />
+      </Group>
+    </Group>
+    <Group key="8c39c0c5-728a-44aa-acee-cfa10f1fca3c">
+      <Group key="0">
+        <Data key="Port Format" value="2,7" />
       </Group>
     </Group>
     <Group key="0412e7a3-7bb2-4490-8a7d-0675b098c5ba">

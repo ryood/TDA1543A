@@ -12,9 +12,9 @@
 #include "project.h"
 #include "wavetable.h"
 
-#define FREQUENCY       1000u
-#define SAMPLE_CLOCK    48680u
-
+#define FREQUENCY       (1000u)         // 生成するサイン波の周波数
+#define I2SM_CLOCK      (2976000u)      // I2Sコンポーネントのクロック(実測値を指定)
+#define SAMPLE_CLOCK    (I2SM_CLOCK/64) 
 #define TABLE_SIZE      1024
 #define BUFFER_SIZE     4
 
@@ -97,9 +97,9 @@ CY_ISR (dma_0_done_handler)
 
 CY_ISR (dma_1_done_handler)
 {
-    //Pin_Check_1_Write(1u);
+    Pin_Check_1_Write(1u);
     generateWave_1();
-    //Pin_Check_1_Write(0u);
+    Pin_Check_1_Write(0u);
 }
 
 CY_ISR (i2s_1_tx_handler)
@@ -144,8 +144,7 @@ int main(void)
     ISR_DMA_1_Done_StartEx(dma_1_done_handler);
     ISR_I2S_1_TX_StartEx(i2s_1_tx_handler);
     
-    //while(0u != (I2S_1_ReadTxStatus() & (I2S_1_TX_FIFO_0_NOT_FULL | I2S_1_TX_FIFO_1_NOT_FULL)))
-    while(0u != (I2S_1_ReadTxStatus() & (I2S_1_TX_FIFO_0_NOT_FULL)))
+    while(0u != (I2S_1_ReadTxStatus() & (I2S_1_TX_FIFO_0_NOT_FULL | I2S_1_TX_FIFO_1_NOT_FULL)))
     {
         /* Wait for TxDMA to fill Tx FIFO */
     }
